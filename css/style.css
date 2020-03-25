@@ -1,0 +1,470 @@
+* {
+	/*change the default color of all elements to black*/
+	color: #000;
+}
+body {
+    background: none repeat scroll 0 0 #fff;
+    color: #222;
+    margin:0;
+}
+
+a {
+	color:#222;
+    text-decoration: none;
+}
+a:hover {
+	color: #222;
+	text-decoration: underline;
+}
+
+a.button:hover {
+	text-decoration: none;
+}
+
+.top-navigation {
+	float:right;
+    margin-right:25px;
+}
+
+.top-navigation li{
+	list-style: none;
+	display: inline-block;
+	text-align: right;
+	padding: 5px 10px 0 0;
+	vertical-align: bottom;
+	margin: 35px 0px 0 0;
+	font-size: 15px;
+}
+li .icon{
+    padding-top: 100px;
+}
+.sign-in{
+    background-color:#4285f4 ;
+    border: 1px solid ;
+    font-weight: bold;
+    outline: none;
+    color:white;
+    padding: 10px 12px 10px 12px;
+}
+.mid-section {
+	position: absolute;
+	margin-top:75px;
+	width:100%;
+}
+.mid-section img {
+	padding:142px 0 24px 0;
+	display: block;
+	margin:0 auto;
+}
+.mid-section input {
+	width: 600px;
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid #d9d9d9;
+    font-size: 16px;
+    border-radius: 5px;
+    display: block;
+}
+.mid-section input:focus {
+	border-color: #f5f5f5;
+}
+.buttons  {
+	text-align: center;
+	padding-left: 0;
+}
+.buttons button{
+    background-color: #f5f5f5;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    color: #666;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 27px;
+    margin: 17px 6px;
+    padding: 0 12px;
+    display: inline-block;
+    cursor: pointer;
+}
+.extra-info {
+	position: absolute;
+	margin-top:5px;
+    width:100%;
+    padding:0 5px 15px 550px;
+}
+
+.extra-info a:link {
+    color: blue;
+  }
+  .extra-info a:visited {
+    color: purple;
+  }
+  
+.buttons button:hover{
+	background-color:#f8f8f8;
+	border: 1px solid #c6c6c6;
+    box-shadow:0 1px 1px rgba(0,0,0,0.1);
+    color:#333;
+} 
+.bottom-tools {
+	position: absolute;
+	width:100%;
+	background-color: #f2f2f2;
+    border-top: 1px solid #e4e4e4; 
+    line-height: 35px;
+}
+.left-side, 
+.right-side {
+	margin: 0;
+}
+.left-side {
+	float:left;
+	padding-left:20px;
+}
+.right-side {
+	float:right;
+	padding-right:10px;
+}
+
+.left-side a,
+.right-side a {
+	color: #666;
+    margin:2px 10px 0;
+    letter-spacing: 0.1px;
+    font-size: 14px;
+}
+.panel {
+    bottom: 100px;
+    left: 300px;
+	position: absolute;
+	width:55%;
+	background-color: #f2f2f2;
+    border-top: 1px solid #e4e4e4; 
+    line-height: 35px;
+}
+.panel a{
+    color: #666;
+    margin:2px 10px 0;
+    letter-spacing: 0.1px;
+    font-size: 20px;
+}
+
+/* Copyright 2015 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+ html {
+    /* Material Design constants */
+    --md-add-size: 24px;
+    --md-edit-menu-size: 20px;
+    --md-fallback-letter-size: 16px;
+    --md-favicon-size: 32px;
+    --md-icon-margin-bottom: 16px;
+    --md-icon-size: 48px;
+    --md-max-tiles-row: 5;
+    --md-menu-margin-side: 2px;
+    --md-menu-margin-top: 4px;
+    --md-menu-size: 12px;
+    --md-tile-height: 112px;
+    --md-tile-margin: 16px;
+    --md-tile-padding-bottom: 10px;
+    --md-tile-padding-horizontal: 4px;
+    --md-tile-padding-top: 16px;
+    --md-tile-width: 112px;
+    --md-title-font-size: 12px;
+    --md-title-height: 24px;
+    --md-title-max-height: 28px;
+  
+    /* May be overridden by themes (on the body element). */
+    --icon-background-color: rgb(var(--GG100-rgb));
+    --tile-title-color: rgb(var(--GG800-rgb));
+  }
+  
+ 
+  
+  a,
+  a:active,
+  a:hover,
+  a:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  #most-visited {
+    top:575px;
+    position: absolute;
+    text-align: -webkit-center;
+    user-select: none;
+    width: 100%
+  }
+  
+  #mv-tiles,
+  .mv-tiles-old,
+  .mv-tile-category {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0;
+    justify-content: center;
+    /* 5 88px tiles per row. If you change this, also change the corresponding
+      * values in local_ntp.css. */
+    max-width: calc(var(--md-tile-width) * var(--md-max-tiles-row));
+    opacity: 0;
+    position: static;
+    /* This align correctly for both LTR and RTL */
+    text-align: -webkit-auto;
+    transition: opacity 300ms;
+    user-select: none;
+  }
+  
+  #mv-tiles, .mv-tile-category {
+    opacity: 1;
+  }
+  
+  .md .mv-tile-category {
+      flex-direction: row;
+  }
+  
+  .md #mv-tiles {
+      flex-direction: column;
+  }
+  
+  .md .mv-tiles-old {
+    display: none;
+  }
+  
+  .mv-tile,
+  .mv-empty-tile {
+    border-radius: 2px;
+    box-sizing: border-box;
+    display: none;
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    height: var(--tile-height);
+    line-height: 100%;
+    margin: 0 calc(var(--tile-margin) / 2);
+    opacity: 1;
+    position: relative;
+    vertical-align: top;
+    white-space: nowrap;
+    width: var(--tile-width);
+  }
+  
+  .mv-tile-category-title {
+      font-size: 11px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #767676;
+      margin: 9px 8px;
+      height: auto;
+      display: none;
+  }
+  
+  .mv-tiles-old {
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+  }
+  
+  .mouse-navigation {
+    outline: none;
+  }
+  
+  .md-tile-container {
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: var(--md-tile-height);
+    margin-bottom: var(--md-tile-margin);
+    opacity: 1;
+    position: relative;
+    transition-property:
+        background, background-color, border-color, box-shadow, opacity, filter;
+    width: var(--md-tile-width);
+  }
+  
+  .md-tile-container.reorder .md-tile {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 rgba(var(--GG800-rgb), 0.3),
+        0 4px 8px 3px rgba(var(--GG800-rgb), 0.15);
+    transition-duration: 200ms;
+  }
+  
+ 
+  
+  .md-tile-container.reorder .md-tile .md-tile-inner {
+    z-index: unset;
+  }
+  
+  .md-tile {
+    cursor: pointer;
+    padding: var(--md-tile-padding-top) var(--md-tile-padding-horizontal)
+      var(--md-tile-padding-bottom);
+  }
+  
+  .md-empty-tile {
+    display: none;
+  }
+  
+  body:not(.reordering) .md-tile-container:hover {
+    background-color: rgba(var(--GG900-rgb), 0.06);
+  }
+  
+  html[darkmode=true] body:not(.reordering) .md-tile-container:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  body.dark-theme:not(.reordering) .md-tile-container:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  body:not(.reordering) .md-tile-container:hover .md-menu {
+    opacity: 1;
+    transition-delay: 500ms;
+  }
+  
+  body.dark-theme:not(.reordering) .md-tile-container:active + .md-menu::after {
+    background-color: rgb(var(--GG400-rgb));
+    transition-delay: 0ms;
+  }
+  
+  .md-tile-container.blacklisted {
+    margin: 0;
+    padding: 0;
+    transform: scale(0, 0);
+    transition-duration: 200ms;
+    transition-property: transform, box-shadow, margin, opacity, padding, width;
+    width: 0;
+  }
+  
+  .md-tile-inner {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .md-icon {
+    margin-bottom: var(--md-icon-margin-bottom);
+  }
+  
+  .md-icon.md-icon--custom-tile {
+      border-radius: 50%;
+      overflow: hidden;
+  }
+  
+  .md-favicon {
+    pointer-events: none;
+  }
+  
+  .md-icon img {
+    /* Icons returned by the NTP Icon Source are always of this size. */
+    height: var(--md-icon-size);
+    width: var(--md-icon-size);
+  }
+  
+  .md-icon-background {
+    align-items: center;
+    background-color: var(--icon-background-color);
+    border-radius: 50%;
+    display: flex;
+    height: var(--md-icon-size);
+    justify-content: center;
+    width: var(--md-icon-size);
+  }
+  
+  .md-add-icon {
+    background: url(icons/add_link.svg) no-repeat center;
+    height: var(--md-add-size);
+    width: var(--md-add-size);
+  }
+  
+  .use-white-add-icon .md-add-icon {
+    background: url(icons/add_link_white.svg) no-repeat center;
+  }
+  
+  .md-fallback-letter {
+    background-color: rgb(var(--GG600-rgb));
+    border-radius: 50%;
+    color: white;
+    font-size: var(--md-fallback-letter-size);
+    height: var(--md-favicon-size);
+    line-height: var(--md-favicon-size);
+    text-align: center;
+    width: var(--md-favicon-size);
+  }
+  
+  
+  .md-title {
+    color: rgb(var(--tile-title-color));
+    font-size: var(--md-title-font-size);
+    font-weight: 500;
+    max-height: var(--md-title-max-height);
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 88px;
+  }
+  
+  /* During reorder background is white. Therefore use dark grey for
+   * title. */
+  .reorder .md-title {
+    color: rgb(var(--GG800-rgb));
+  }
+  
+  /* During reorder in dark mode background is dark. Therefore use light
+   * grey for title. */
+  html[darkmode=true] .reorder .md-title {
+    color: rgb(var(--GG100-rgb));
+  }
+  
+  .md-title span {
+    line-height: var(--md-title-height);
+  }
+  
+ 
+  
+  .md-menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: var(--md-menu-size);
+    margin: var(--md-menu-margin-top) var(--md-menu-margin-side);
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: var(--md-menu-size);
+  }
+  
+  html[dir=rtl] .md-menu {
+    left: 0;
+    right: auto;
+  }
+  
+  
+  /* We use ::after without content to provide the masked X element. */
+  .md-menu::after {
+    --mask-width: calc(var(--md-menu-size) - 2);
+    -webkit-mask-image: -webkit-image-set(
+        url(icons/dont_show.png) 1x,
+        url(icons/dont_show_2x.png) 2x);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: var(--mask-width);
+    background-color: rgb(var(--GG600-rgb));
+    content: '';
+    display: block;
+    height: var(--md-menu-size);
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: var(--md-menu-size);
+  }
+  
+  
